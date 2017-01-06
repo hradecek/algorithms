@@ -16,6 +16,14 @@
   <name>graph-algorithms</name>
   <url>https://github.com/hradecek/algorithms/graph</url>
 
+  <dependencies>
+      <dependency>
+          <groupId>org.jgrapht</groupId>
+          <artifactId>jgrapht-core</artifactId>
+          <version>1.0.0</version>
+      </dependency>
+  </dependencies>
+
   <modules>
     <module>dijsktra</module>
   </modules>
