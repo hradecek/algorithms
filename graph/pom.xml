@@ -8,7 +8,7 @@
     <version>1.0</version>
   </parent>
 
-  <groupId>com.hradecek.algorithms.graphs</groupId>
+  <groupId>com.hradecek.algorithms.graph</groupId>
   <artifactId>graph-algorithms</artifactId>
   <version>1.0</version>
   <packaging>pom</packaging>
@@ -25,6 +25,7 @@
   </dependencies>
 
   <modules>
-    <module>dijsktra</module>
+    <module>dijkstra</module>
+    <module>bellman-ford</module>
   </modules>
 </project>

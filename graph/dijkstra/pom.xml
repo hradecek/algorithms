@@ -10,7 +10,7 @@
   </parent>
 
   <groupId>com.hradecek.graph.dijkstra</groupId>
-  <artifactId>dijsktra</artifactId>
+  <artifactId>dijkstra</artifactId>
   <version>1.0</version>
 
   <name>dijsktra</name>
