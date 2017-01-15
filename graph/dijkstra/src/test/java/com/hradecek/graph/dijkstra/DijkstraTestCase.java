@@ -1,5 +1,6 @@
 package com.hradecek.graph.dijkstra;
 
+import org.jgrapht.DirectedGraph;
 import org.jgrapht.Graph;
 import org.jgrapht.alg.util.Pair;
 import org.jgrapht.graph.DefaultWeightedEdge;
@@ -12,6 +13,8 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import static org.junit.Assert.*;
 
 public class DijkstraTestCase {
 
@@ -49,21 +52,23 @@ public class DijkstraTestCase {
     /**
      *
      */
-    private Graph graph;
+    private SimpleDirectedWeightedGraph graph;
 
     @Before
     public void init() {
         this.graph = initGraph();
     }
 
-    private Graph initGraph() {
+    private SimpleDirectedWeightedGraph<String, DefaultWeightedEdge> initGraph() {
         SimpleDirectedWeightedGraph<String, DefaultWeightedEdge> graph = new SimpleDirectedWeightedGraph<>(DefaultWeightedEdge.class);
+
+        // Add vertices
+        mapRepresentation.keySet().forEach(graph::addVertex);
 
         // For each entry of mapRepresentation
         for (Map.Entry<String, List<Pair<String, Integer>>> entry : mapRepresentation.entrySet()) {
-            // Add vertex
+            // Starting vertex
             String from = entry.getKey();
-            graph.addVertex(from);
             // Add all adjacent vertices together with edge weight
             for (Pair<String, Integer> to : entry.getValue()) {
                 DefaultWeightedEdge edge = graph.addEdge(from, to.first);
@@ -75,11 +80,15 @@ public class DijkstraTestCase {
     }
 
     @Test
-    public void testPathBetween() {
+    public void testFindShortestPathBetween() {
+        assertTrue(true);
     }
 
     @Test
-    public void testWeightOfTheShortestPath() {
-
+    public void testFindShortestPathBetweenWeight() {
+        // The weight of the shortest path A ~> H is equal to 60
+        assertEquals(60, Dijkstra.findPathBetween(graph, "A", "H").getWeight(), 0.001);
+        // There is no such a path from A ~> E
+        assertTrue(null == Dijkstra.findPathBetween(graph, "A", "E"));
     }
 }
