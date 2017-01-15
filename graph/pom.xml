@@ -27,5 +27,6 @@
   <modules>
     <module>dijkstra</module>
     <module>bellman-ford</module>
+    <module>kruskal</module>
   </modules>
 </project>
